@@ -1,0 +1,67 @@
+.liquid-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  will-change: transform, border-radius;
+}
+.blob-a {
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  left: -12%;
+  top: -10%;
+  background: radial-gradient(circle at 30% 30%, #ffce7a 0%, #b8862c 45%, transparent 75%);
+  animation: morphA 22s ease-in-out infinite;
+}
+.blob-b {
+  width: 38vw;
+  height: 38vw;
+  max-width: 520px;
+  max-height: 520px;
+  right: -10%;
+  bottom: -14%;
+  background: radial-gradient(circle at 60% 40%, #ffe6b0 0%, #8a5a1e 50%, transparent 75%);
+  animation: morphB 26s ease-in-out infinite;
+}
+.blob-c {
+  width: 28vw;
+  height: 28vw;
+  max-width: 400px;
+  max-height: 400px;
+  left: 50%;
+  top: 55%;
+  background: radial-gradient(circle at 50% 50%, #d9a95a 0%, #5c3d15 55%, transparent 75%);
+  animation: morphC 30s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes morphA {
+  0%, 100% { transform: translate(0, 0) scale(1); border-radius: 50% 50% 45% 55%/55% 45% 55% 45%; }
+  33% { transform: translate(4vw, 3vh) scale(1.08); border-radius: 45% 55% 55% 45%/45% 55% 45% 55%; }
+  66% { transform: translate(-2vw, 4vh) scale(0.95); border-radius: 55% 45% 50% 50%/50% 50% 55% 45%; }
+}
+@keyframes morphB {
+  0%, 100% { transform: translate(0, 0) scale(1); border-radius: 50%; }
+  50% { transform: translate(-3vw, -4vh) scale(1.12); border-radius: 42% 58% 55% 45%/55% 45% 58% 42%; }
+}
+@keyframes morphC {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2) rotate(20deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob { animation: none !important; }
+}
+
+@media (max-width: 700px) {
+  .blob { filter: blur(48px); opacity: 0.4; }
+}

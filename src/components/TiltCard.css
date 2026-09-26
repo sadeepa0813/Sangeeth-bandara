@@ -1,0 +1,29 @@
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.4s ease;
+  will-change: transform;
+}
+.tilt-card:hover {
+  box-shadow: 0 30px 60px -20px #000a, 0 0 40px #d9b46a1f;
+}
+.tilt-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    #ffe6b02e,
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.tilt-card:hover .tilt-sheen {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-card { transition: none; }
+}
